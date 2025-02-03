@@ -32,3 +32,12 @@ def sign_in(request):
             return redirect("account:profile")
 
     return render(request, "account/signin.html")
+
+
+def profile(request):
+    user = request.user
+    if user.is_authenticated:
+        profile = UserProfile.objects.get(user=user)
+        return render(request, "account/profile.html", {"profile": profile})
+
+    return redirect("account:sign_in")
