@@ -34,6 +34,11 @@ def sign_in(request):
     return render(request, "account/signin.html")
 
 
+def sign_out(request):
+    logout(request)
+    return redirect("account:sign_in")
+
+
 def profile(request):
     user = request.user
     if user.is_authenticated:
