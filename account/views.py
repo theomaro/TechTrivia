@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
 from .forms import UserProfileForm
 from .models import UserProfile
 
@@ -40,15 +41,14 @@ def sign_in(request):
     return render(request, "account/signin.html")
 
 
+@login_required
 def sign_out(request):
     logout(request)
     return redirect("account:sign_in")
 
 
+@login_required
 def profile(request):
     user = request.user
-    if user.is_authenticated:
-        profile = UserProfile.objects.get(user=user)
-        return render(request, "account/profile.html", {"profile": profile})
-
-    return redirect("account:sign_in")
+    profile = UserProfile.objects.get(user=user)
+    return render(request, "account/profile.html", {"profile": profile})
