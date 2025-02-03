@@ -1,6 +1,18 @@
-<h2>Register</h2>
+{% extends "../base.html" %}
+
+{% block title %}
+  User Profile
+{% endblock title %}
+
+{% block content %}
+<h2 class="text-lg my-2 fw-500">Account Registration</h2>
 <form method="POST">
   {% csrf_token %} {{ form.as_p }}
-  <button type="submit">Register</button>
+  <button type="submit" class="bg-gray-800 text-gray-300 py-1 px-3 rounded-md my-2">Register</button>
 </form>
-<a href="{% url 'account:sign_in' %}">Already have an account? Login</a>
+
+<p>
+  Already have an account?
+  <a href="{% url 'account:sign_in' %}" class="text-stone-700 underline">Login</a>
+</p>
+{% endblock content %}

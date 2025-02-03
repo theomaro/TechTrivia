@@ -1,11 +1,19 @@
-<h2>Login</h2>
+{% extends "../base.html" %}
+
+{% block title %}
+  User Profile
+{% endblock title %}
+
+{% block content %}
+<h class="text-lg my-2 fw-500"2>Login</h2>
 <form method="POST">
   {% csrf_token %}
   <label>Username:</label>
   <input type="text" name="username" required />
   <label>Password:</label>
   <input type="password" name="password" required />
-  <button type="submit">Login</button>
+  <button type="submit" class="bg-gray-800 text-gray-300 py-1 px-3 rounded-md">Login</button>
 </form>
 
-<a href="{% url 'account:sign_up' %}">Create an account</a>
+<a href="{% url 'account:sign_up' %}" class="text-stone-700 underline">Create an account</a>
+{% endblock content %}
