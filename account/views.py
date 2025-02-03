@@ -7,6 +7,9 @@ from .models import UserProfile
 
 
 def sign_up(request):
+    if request.user.is_authenticated:
+        return redirect("account:profile")
+
     if request.method == "POST":
         form = UserProfileForm(request.POST)
         if form.is_valid():
@@ -23,6 +26,9 @@ def sign_up(request):
 
 
 def sign_in(request):
+    if request.user.is_authenticated:
+        return redirect("account:profile")
+
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
