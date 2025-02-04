@@ -6,7 +6,7 @@ TechTrivia is an interactive quiz app that challenges and enhances your knowledg
 
 1. **Authentication and Management Profile**
 
-   - ❌ Users can sign up, log in, and log out to track their progress.
+   - ✅ Users can sign up, log in, and log out to track their progress.
    - ❌ User to view and manage their quiz history and performance statistics.
 
 2. **Exploration and Quiz Selection**
