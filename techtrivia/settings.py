@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "account",
+    "quiz"
 ]
 
 LOGIN_URL = "/account/signin/"
